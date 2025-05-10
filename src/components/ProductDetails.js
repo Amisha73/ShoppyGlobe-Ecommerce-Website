@@ -51,9 +51,11 @@ const ProductDetails = () => {
               <p className="">
                 <strong>Description:</strong> {product.description}
               </p>
-              <p>
-                <strong>Brand:</strong> {product.brand}
-              </p>
+              {product.brand ? (
+                <p>
+                  <strong>Brand:</strong> {product.brand}
+                </p>
+              ) : null}
               <p>
                 <strong>Rating:</strong> {product.rating}⭐
               </p>
@@ -86,7 +88,7 @@ const ProductDetails = () => {
               </p>
               <p>
                 <strong>Refund Policy:</strong> {product.returnPolicy}
-              </p>              
+              </p>
             </div>
           </div>
         </Card.Body>
@@ -103,7 +105,9 @@ const ProductDetails = () => {
               </div>
               <div>
                 <p className="card-text">
-                  <span className="badge bg-success p-2">{review.rating} ⭐</span>
+                  <span className="badge bg-success p-2">
+                    {review.rating} ⭐
+                  </span>
                 </p>
               </div>
             </div>

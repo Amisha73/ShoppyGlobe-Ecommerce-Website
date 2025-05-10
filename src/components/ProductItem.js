@@ -25,7 +25,7 @@ const ProductItem = ({ product }) => {
     <div className="card mb-4 d-flex sm:flex-wrap shadow ">
       <img
         src={product.images[0]}
-        className="card-img-top"
+        className="card-img-top w-50 mx-auto"
         alt={product.title}
       />
       <div className="card-body">
@@ -49,10 +49,10 @@ const ProductItem = ({ product }) => {
           )}
         </p>
         <div className="d-flex justify-content-between">
-          <Button variant="primary" onClick={showDetails}>
+          <Button variant="dark" onClick={showDetails}>
             View Details
           </Button>
-          <Button variant="primary" onClick={handleAddToCart}>
+          <Button variant="dark" onClick={handleAddToCart}>
             Add to Cart
           </Button>
         </div>
