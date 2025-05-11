@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { Card } from "react-bootstrap";
+import { Card, Button } from "react-bootstrap";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../redux/actions";
+import { Spinner } from "react-bootstrap";
 
 const ProductDetails = () => {
   const { id } = useParams();
+  const dispatch = useDispatch();
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -24,8 +28,29 @@ const ProductDetails = () => {
     fetchProduct();
   }, [id]);
 
-  if (loading) return <p>Loading...</p>;
+  if (loading)
+    return (
+      <div
+        className="d-flex justify-content-center align-items-center fs-4"
+        style={{ height: "100vh" }}
+      >
+        <Spinner animation="border" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </Spinner>
+        Loading...
+      </div>
+    );
   if (error) return <p>Error fetching product details.</p>;
+
+  const handleAddToCart = () => {
+    // dispatch(addToCart({ ...product, quantity: 1 }));
+    // console.log("Failed to add to cart");
+    try {
+      dispatch(addToCart({ ...product, quantity: 1 }));
+    } catch (error) {
+      console.error("Failed to add to cart:", error);
+    }
+  };
 
   const discountedPrice = (
     product.price -
@@ -36,16 +61,24 @@ const ProductDetails = () => {
     <div className="mx-auto p-5 w-75">
       <>
         <Card.Body>
-          <h3 className="p-3 text-center itallic ">{product.title}</h3>
-          <div className="d-flex justify-content-around align-items-center gap-5">
+          <h3 className="p-3 text-center fw-bold fs-2 ">{product.title}</h3>
+          <div className="d-flex justify-content-around align-items-center gap-5 mb-5">
             <div>
               <img
                 src={product.images[0]}
-                className="img-fluid mb-3"
+                className="img-fluid mb-3 hover-zoom"
+                role="button"
                 width="600px"
                 height="600px"
                 alt={product.title}
               />
+              <Button
+                variant="dark"
+                onClick={handleAddToCart}
+                className="w-100"
+              >
+                Add to Cart
+              </Button>
             </div>
             <div className="d-flex flex-column  ">
               <p className="">
