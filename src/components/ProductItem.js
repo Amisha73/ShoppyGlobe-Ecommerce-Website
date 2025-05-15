@@ -1,12 +1,12 @@
 // src/components/ProductItem.js
 import React from "react";
-import { Button } from "react-bootstrap";
-import { useDispatch } from "react-redux";
-import { addToCart } from "../redux/actions";
+// import { Button } from "react-bootstrap";
+// import { useDispatch } from "react-redux";
+// import { addToCart } from "../redux/actions";
 import { useNavigate } from "react-router-dom";
 
 const ProductItem = ({ product }) => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const discountedPrice = (
@@ -57,9 +57,6 @@ const ProductItem = ({ product }) => {
             </>
           )}
         </p>
-        {/* <Button variant="dark" onClick={handleAddToCart}>
-          Add to Cart
-        </Button> */}
       </div>
     </div>
   );

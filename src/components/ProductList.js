@@ -35,7 +35,7 @@ const ProductList = () => {
 
   return (
     <div className="container mt-5">
-      <div className="d-flex gap-2 mb-4">
+      <div className="d-flex flex-wrap gap-2 mb-4">
         {categories.map((category) => (
           <Button
             key={category}

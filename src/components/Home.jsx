@@ -1,11 +1,11 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-// import ProductList from './ProductList.js';
+import ProductList from './ProductList.js';
 
 const Home = () => {
   return (
-    <div className='p-5 m-4'>
-      <Container fluid className="p-3 d-flex flex-column justify-content-center align-items-center bg-light">
+    <div className='bg-light mb-5'>
+      <Container fluid className="p-5 d-flex flex-column justify-content-center align-items-center bg-white">
         <Row className="align-items-center">
           <Col xs={12} md={6} className='mb-4'>
             <img 
@@ -22,7 +22,7 @@ const Home = () => {
           </Col>
         </Row>
       </Container>
-      {/* <ProductList /> */}
+      <ProductList />
     </div>
   );
 };

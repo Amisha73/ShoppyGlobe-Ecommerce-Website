@@ -58,11 +58,11 @@ const ProductDetails = () => {
   ).toFixed(2);
 
   return (
-    <div className="mx-auto p-5 w-75">
+    <div className="mx-auto lg-p-5 w-75 ">
       <>
         <Card.Body>
           <h3 className="p-3 text-center fw-bold fs-2 ">{product.title}</h3>
-          <div className="d-flex justify-content-around align-items-center gap-5 mb-5">
+          <div className="d-flex flex-md-row-reverse flex-column justify-content-around align-items-center gap-5 mb-5">
             <div>
               <img
                 src={product.images[0]}
@@ -89,9 +89,6 @@ const ProductDetails = () => {
                   <strong>Brand:</strong> {product.brand}
                 </p>
               ) : null}
-              <p>
-                <strong>Rating:</strong> {product.rating}⭐
-              </p>
               <p className="card-text">
                 {discountedPrice === product.price.toFixed(2) ? (
                   <span>
@@ -116,6 +113,9 @@ const ProductDetails = () => {
                 <strong>Stock:</strong> {product.stock}
               </p>
               <p>
+                <strong>Rating:</strong> {product.rating}⭐
+              </p>
+              <p>
                 <strong>Shipping Information:</strong>{" "}
                 {product.shippingInformation}
               </p>
@@ -130,7 +130,7 @@ const ProductDetails = () => {
       <h5>𝑹𝒆𝒗𝒊𝒆𝒘𝒔 :</h5>
       <div className="d-flex flex-column gap-3 ">
         {product.reviews.map((review, index) => (
-          <div key={index} className="card p-3 shadow">
+          <div key={index} className="card p-2 shadow">
             <div className="card-body d-flex justify-content-between">
               <div>
                 <h6 className="card-title">{review.reviewerName}</h6>
