@@ -8,24 +8,28 @@ import NotFound from "./components/NotFound";
 import Home from "./components/Home";
 // import SearchResult from "./components/SearchResult";
 import Footer from './components/common/Footer'
+import AboutPage from "./components/AboutPage";
+import LoginSignup from "./components/LoginSignup";
 
 const App = () => {
   return (
-    <Router>
+    <div className="page-container">
+      <Router>
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/product" element={<ProductList />} />
         <Route path="/product/:id" element={<ProductDetails />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/about" element={<AboutPage />} />
         {/* <Route path="/search" element={<SearchResult />} /> */}
         <Route path="*" element={<NotFound />} />
         {/* <Route path="/checkout"  element={<CheckOutPage/>}/> */}
-        {/* <Route path="/signin" element={<Signin/>} /> */}
-        {/* <Route path="/signup" element={<Signup/>} /> */}
+        <Route path="/loginSignup" element={<LoginSignup/>} />
       </Routes>
       <Footer/>
     </Router>
+    </div>
   );
 };
 
