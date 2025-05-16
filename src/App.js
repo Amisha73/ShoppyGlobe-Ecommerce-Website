@@ -6,7 +6,6 @@ import ProductDetails from "./components/ProductDetails";
 import Cart from "./components/Cart";
 import NotFound from "./components/NotFound";
 import Home from "./components/Home";
-// import SearchResult from "./components/SearchResult";
 import Footer from './components/common/Footer'
 import AboutPage from "./components/AboutPage";
 import LoginSignup from "./components/LoginSignup";
@@ -22,7 +21,6 @@ const App = () => {
         <Route path="/product/:id" element={<ProductDetails />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/about" element={<AboutPage />} />
-        {/* <Route path="/search" element={<SearchResult />} /> */}
         <Route path="*" element={<NotFound />} />
         {/* <Route path="/checkout"  element={<CheckOutPage/>}/> */}
         <Route path="/loginSignup" element={<LoginSignup/>} />

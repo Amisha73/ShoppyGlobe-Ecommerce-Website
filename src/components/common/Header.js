@@ -1,44 +1,126 @@
 // src/components/Header.js
 
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 const Header = () => {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
+
   return (
     <header className="bg-dark text-white p-3">
-      <div className="container d-flex justify-content-between align-items-center ">
+      <div className="d-flex justify-content-between align-items-center ">
+        {/* Logo */}
         <h1 className="h4">
           <Link to="/" className="text-white text-decoration-none ">
             𝒮𝒽ℴ𝓅𝓅𝓎𝒢𝓁ℴ𝒷ℯ
           </Link>
         </h1>
-        {/* menu bar for small screen */}
-        <div className="d-lg-none">☰</div>
-        <nav className="d-none d-xxl-block d-xl-block d-lg-block">
-          <ul className="nav">
-            <li className="nav-item">
-              <Link to="/" className="nav-link text-white">
-                Home
+
+        {/* Menu bar for small screen */}
+        <div className="d-lg-none cursor-pointer" onClick={toggleSidebar}>
+          {" "}
+          ☰{" "}
+        </div>
+
+        {/* Sidebar */}
+        {isSidebarOpen && (
+          <div
+            className="sidebar position-fixed top-0 start-0 bg-dark text-white p-4"
+            style={{ width: "250px", height: "100%", zIndex: 1000 }}
+          >
+            <h1 className="h4 mb-5">
+              <Link to="/" className="text-white text-decoration-none">
+                𝒮𝒽ℴ𝓅𝓅𝓎𝒢𝓁ℴ𝒷ℯ
               </Link>
-            </li>
-            <li className="nav-item">
-              <Link to="/about" className="nav-link text-white">
-                About
+            </h1>
+            <nav className="d-flex flex-column gap-3">
+              <ul className="nav flex-column">
+                <li className="nav-item">
+                  <Link to="/" className="nav-link text-white" onClick={toggleSidebar}
+                  >
+                    Home
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link to="/about" className="nav-link text-white" onClick={toggleSidebar}
+                  >
+                    About
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link to="/product" className="nav-link text-white" onClick={toggleSidebar}
+                  >
+                    Products
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link to="/checkout" className="nav-link text-white" onClick={toggleSidebar}
+                  >
+                    Checkout
+                  </Link>
+                </li>
+              </ul>
+
+              <form className="">
+                <input
+                  type="search"
+                  className="form-control rounded"
+                  placeholder="Search"
+                  aria-label="Search"
+                  aria-describedby="search-addon"
+                />
+              </form>
+              <Link to="/loginSignup" className="nav-link text-white" onClick={toggleSidebar}>
+                Login
               </Link>
-            </li>
-            <li className="nav-item">
-              <Link to="/product" className="nav-link text-white">
-                Products
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link to="/checkout" className="nav-link text-white">
-                Checkout
-              </Link>
-            </li>
-          </ul>
-        </nav>
-        {/* cart icon svg */}
+            </nav>
+          </div>
+        )}
+
+        {/* big screen navbar */}
+        <div className="d-none d-xxl-block d-xl-block d-lg-block">
+          <nav className="d-flex gap-5">
+            <ul className="nav">
+              <li className="nav-item">
+                <Link to="/" className="nav-link text-white">
+                  Home
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link to="/about" className="nav-link text-white">
+                  About
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link to="/product" className="nav-link text-white">
+                  Products
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link to="/checkout" className="nav-link text-white">
+                  Checkout
+                </Link>
+              </li>
+            </ul>
+            {/* input for search */}
+            <form className="input-group w-auto">
+              <input
+                type="search"
+                className="form-control rounded"
+                placeholder="Search"
+                aria-label="Search"
+                aria-describedby="search-addon"
+              />
+              <span class="input-group-text border-0" id="search-addon">
+                <i class="fas fa-search"></i>
+              </span>
+            </form>
+          </nav>
+        </div>
         <div className="d-none d-xxl-block d-xl-block d-lg-block">
           <div className="d-flex gap-5 align-items-center">
             <div className="position-relative">
@@ -56,10 +138,9 @@ const Header = () => {
                   0
                 </span>
               </Link>
-            </div>{" "}
-            <Link to="/loginSignup" className="nav-link text-white"
-            role="btn">
-                Login          
+            </div>
+            <Link to="/loginSignup" className="nav-link text-white " role="btn">
+              Login
             </Link>
           </div>
         </div>

@@ -9,16 +9,16 @@ function LoginSignup() {
   };
 
   return (
-    <div className="container md-p-3 my-5 d-flex flex-column " style={{ width: '40%' }}>
+    <div className="container md-p-3 my-5 d-flex flex-column align-items-center justify-content-center mx-auto ">
       <div className="d-flex justify-content-between gap-3 mb-3">
         <button
-          className={`btn ${activeTab === 'login' ? 'btn-dark' : 'btn-secondary'} w-50`}
+          className={`btn ${activeTab === 'login' ? 'btn-dark' : 'btn-secondary'}`}
           onClick={() => handleTabChange('login')}
         >
           Login
         </button>
         <button
-          className={`btn ${activeTab === 'register' ? 'btn-dark' : 'btn-secondary'} w-50` }
+          className={`btn ${activeTab === 'register' ? 'btn-dark' : 'btn-secondary'}` }
           onClick={() => handleTabChange('register')}
         >
           Register
@@ -26,18 +26,18 @@ function LoginSignup() {
       </div>
 
       {activeTab === 'login' ? (
-        <div>
+        <div className='mb-3' >
           <div className="text-center mb-5">
             <p>Sign in with:</p>
             <div className="d-flex justify-content-center mx-auto" style={{ width: '40%' }}>
-              <Link to="/" className="btn fs-4" >
+              <Link to="#!" className="btn fs-4 fw-bold" >
                 𝒇
               </Link>
-              <Link to="/" className="btn fs-4" >
+              <Link to="#!" className="btn fs-4 fw-bold" >
                 𝕏
               </Link>
-              <Link to="/" className="btn fs-4" >
-                🇬
+              <Link to="#!" className="btn fs-4 fw-bold" >
+                🇬 
               </Link>
             </div>
             <p className="text-center mt-3">or:</p>
@@ -69,14 +69,14 @@ function LoginSignup() {
               className="d-flex justify-content-center mx-auto"
               style={{ width: "40%" }}
             >
-              <Link to="/" className="btn fs-4">
+              <Link to="#!" className="btn fs-4 fw-bold" >
                 𝒇
               </Link>
-              <Link to="/" className="btn fs-4">
+              <Link to="#!" className="btn fs-4 fw-bold" >
                 𝕏
               </Link>
-              <Link to="/" className="btn fs-4">
-                🇬
+              <Link to="#!" className="btn fs-4 fw-bold" >
+                🇬 
               </Link>
             </div>
             <p className="text-center mt-3">or:</p>
