@@ -26,7 +26,7 @@ const Header = () => {
           ☰{" "}
         </div>
 
-        {/* Sidebar */}
+        {/* Sidebar for small and large screen */}
         {isSidebarOpen && (
           <div
             className="sidebar position-fixed top-0 start-0 bg-dark text-white p-4"
@@ -70,8 +70,6 @@ const Header = () => {
                   type="search"
                   className="form-control rounded"
                   placeholder="Search"
-                  aria-label="Search"
-                  aria-describedby="search-addon"
                 />
               </form>
               <Link to="/loginSignup" className="nav-link text-white" onClick={toggleSidebar}>
@@ -81,7 +79,7 @@ const Header = () => {
           </div>
         )}
 
-        {/* big screen navbar */}
+        {/* xl and xxl screen navbar */}
         <div className="d-none d-xxl-block d-xl-block d-lg-block">
           <nav className="d-flex gap-5">
             <ul className="nav">
@@ -112,11 +110,9 @@ const Header = () => {
                 type="search"
                 className="form-control rounded"
                 placeholder="Search"
-                aria-label="Search"
-                aria-describedby="search-addon"
               />
-              <span class="input-group-text border-0" id="search-addon">
-                <i class="fas fa-search"></i>
+              <span className="input-group-text " id="search-addon">
+                🔍
               </span>
             </form>
           </nav>

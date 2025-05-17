@@ -3,23 +3,21 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
 
-const CartItem = ({ item, onRemove, onQuantityChange }) => {
+const CartItem = () => {
   return (
     <tr>
-      <td>{item.title}</td>
-      <td>${item.price.toFixed(2)}</td>
+      <td>title</td>
+      <td>$price</td>
       <td>
         <input
           type="number"
           min="1"
-          value={item.quantity}
-          onChange={(e) => onQuantityChange(item.id, parseInt(e.target.value))}
           style={{ width: '60px' }}
         />
       </td>
-      <td>${(item.price * item.quantity).toFixed(2)}</td>
+      <td>$price*quantity</td>
       <td>
-        <Button variant="danger" onClick={() => onRemove(item.id)}>Remove</Button>
+        <Button variant="danger">Remove</Button>
       </td>
     </tr>
   );
