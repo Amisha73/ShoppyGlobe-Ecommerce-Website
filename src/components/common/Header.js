@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { FaSearch } from "react-icons/fa";
 
 const Header = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -58,23 +59,30 @@ const Header = () => {
                   </Link>
                 </li>
                 <li className="nav-item">
+                  <Link to="/cart" className="nav-link text-white" onClick={toggleSidebar}
+                  >
+                    Cart
+                  </Link>
+                </li>
+                <li className="nav-item">
                   <Link to="/checkout" className="nav-link text-white" onClick={toggleSidebar}
                   >
                     Checkout
                   </Link>
                 </li>
+                <Link to="/loginSignup" className="nav-link text-white" onClick={toggleSidebar}>
+                Login
+              </Link>
               </ul>
 
-              <form className="">
+              {/* <form className="">
                 <input
                   type="search"
                   className="form-control rounded"
                   placeholder="Search"
                 />
-              </form>
-              <Link to="/loginSignup" className="nav-link text-white" onClick={toggleSidebar}>
-                Login
-              </Link>
+              </form> */}
+              
             </nav>
           </div>
         )}
@@ -108,17 +116,17 @@ const Header = () => {
             <form className="input-group w-auto">
               <input
                 type="search"
-                className="form-control rounded"
+                className="form-control"
                 placeholder="Search"
               />
               <span className="input-group-text " id="search-addon">
-                🔍
+                <FaSearch />
               </span>
             </form>
           </nav>
         </div>
         <div className="d-none d-xxl-block d-xl-block d-lg-block">
-          <div className="d-flex gap-5 align-items-center">
+          <div className="d-flex gap-5 me-3 ">
             <div className="position-relative">
               <Link to="/cart" className="d-flex align-items-center">
                 <svg

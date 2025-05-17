@@ -58,7 +58,7 @@ const ProductDetails = () => {
   ).toFixed(2);
 
   return (
-    <div className="mx-auto lg-p-5 w-75 ">
+    <div className="mx-auto lg-p-5 w-75 mb-5 ">
       <>
         <Card.Body>
           <h3 className="p-3 text-center fw-bold fs-2 ">{product.title}</h3>
@@ -128,7 +128,7 @@ const ProductDetails = () => {
       </>
 
       <h5>𝑹𝒆𝒗𝒊𝒆𝒘𝒔 :</h5>
-      <div className="d-flex flex-column gap-3 ">
+      <div className="d-flex flex-column gap-3  mb-5">
         {product.reviews.map((review, index) => (
           <div key={index} className="card p-2 shadow">
             <div className="card-body d-flex justify-content-between">

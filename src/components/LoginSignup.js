@@ -9,7 +9,7 @@ function LoginSignup() {
   };
 
   return (
-    <div className="container md-p-3 my-5 d-flex flex-column align-items-center justify-content-center mx-auto ">
+    <div className="container md-p-3 my-5 d-flex flex-column align-items-center justify-content-center mx-auto">
       <div className="d-flex justify-content-between gap-3 mb-3">
         <button
           className={`btn ${activeTab === 'login' ? 'btn-dark' : 'btn-secondary'}`}
@@ -26,7 +26,7 @@ function LoginSignup() {
       </div>
 
       {activeTab === 'login' ? (
-        <div className='mb-3' >
+        <div className='mb-5' >
           <div className="text-center mb-5">
             <p>Sign in with:</p>
             <div className="d-flex justify-content-center mx-auto" style={{ width: '40%' }}>
@@ -62,7 +62,7 @@ function LoginSignup() {
           </p>
         </div>
       ) : (
-        <div>
+        <div className='mb-5'>
           <div className="text-center mb-3">
             <p>Sign up with:</p>
             <div

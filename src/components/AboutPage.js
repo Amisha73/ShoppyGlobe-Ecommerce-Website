@@ -30,7 +30,7 @@ const AboutPage = () => {
   ];
 
   return (
-    <div className="container mt-5">
+    <div className="container mt-5 mb-5">
       <div className="d-flex flex-md-row-reverse flex-column justify-content-around align-items-center gap-5 mb-5 ">
         <div className="w-50">
           <img
@@ -50,7 +50,7 @@ const AboutPage = () => {
       </div>
 
       <p className="text-center fs-1 fw-bold">Meet Our Team</p>
-      <div className="d-flex flex-wrap justify-content-center align-items-center gap-5">
+      <div className="d-flex flex-wrap justify-content-center align-items-center gap-5 mb-5">
         {employees.map((employee) => (
           <Card key={employee.id} className="shadow">
             <img

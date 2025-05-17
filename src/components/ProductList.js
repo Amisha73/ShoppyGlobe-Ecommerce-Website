@@ -34,7 +34,7 @@ const ProductList = () => {
   if (error) return <p>Error fetching products.</p>;
 
   return (
-    <div className="container mt-5">
+    <div className="container mt-5 mb-5">
       <div className="d-flex flex-wrap gap-2 mb-4">
         {categories.map((category) => (
           <Button
