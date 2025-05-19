@@ -45,6 +45,9 @@ A React-based product catalog application that allows users to browse products, 
 8.  Start the development server:
     `npm start`
 
+    
+
+```
 ## Folder Structure
 
 shoppyGlobe/
@@ -58,10 +61,13 @@ shoppyGlobe/
 │ │ ├── ProductDetails.js
 │ │ ├── ProductItem.js
 │ | ├── ProductList.js
-| | ├── Header.js
+| | ├── Home.js
 │ │ ├── NotFound.js
-│ │ └── ...
-│ ├── containers/
+│ │ ├── AboutPage.js
+│ │ ├── LoginSignup.js
+│ │ │ ├── common/
+│ │ │ | ├── Header.js
+│ │ │ | ├── Footer.js
 │ ├── hooks/
 │ │ ├── useFetchProducts.js
 │ ├── redux/
@@ -73,3 +79,5 @@ shoppyGlobe/
 │ └── ...
 ├── package.json
 └── README.md
+
+````

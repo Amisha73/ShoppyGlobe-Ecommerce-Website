@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { FcGoogle } from "react-icons/fc";
+import { BsTwitterX } from "react-icons/bs";
+import { FaFacebook } from "react-icons/fa";
 
 function LoginSignup() {
   const [activeTab, setActiveTab] = useState('login');
@@ -31,13 +34,13 @@ function LoginSignup() {
             <p>Sign in with:</p>
             <div className="d-flex justify-content-center mx-auto" style={{ width: '40%' }}>
               <Link to="#!" className="btn fs-4 fw-bold" >
-                𝒇
+                <FaFacebook/>
               </Link>
               <Link to="#!" className="btn fs-4 fw-bold" >
-                𝕏
+                <BsTwitterX />
               </Link>
               <Link to="#!" className="btn fs-4 fw-bold" >
-                🇬 
+                <FcGoogle />
               </Link>
             </div>
             <p className="text-center mt-3">or:</p>
@@ -70,13 +73,13 @@ function LoginSignup() {
               style={{ width: "40%" }}
             >
               <Link to="#!" className="btn fs-4 fw-bold" >
-                𝒇
+                <FaFacebook/>
               </Link>
               <Link to="#!" className="btn fs-4 fw-bold" >
-                𝕏
+                <BsTwitterX />
               </Link>
               <Link to="#!" className="btn fs-4 fw-bold" >
-                🇬 
+                <FcGoogle /> 
               </Link>
             </div>
             <p className="text-center mt-3">or:</p>
