@@ -26,26 +26,22 @@ A React-based product catalog application that allows users to browse products, 
 2.  Create a New React App:
     `npx create-react-app shoppyglobe`
 
-3.  Navigate to the Project Directory:
-    `cd Shoppyglobe`
-
-4.  Install Required Packages:
+3.  Install Required Packages:
     `npm install bootstrap redux react-redux`
 
-5.  Create the Project Structure:
-   * `mkdir src/components src/redux src/hooks`
-   * `touch src/components/{Header.js,ProductList.js,ProductItem.js,ProductDetail.js,Cart.js,CartItem.js,NotFound.js} src/redux/{actions.js,reducers.js,store.js} src/hooks/useFetchProducts.js`
+4.  Create the Project Structure:
 
-6. Add Bootstrap CSS  in your `src/index.js` file:
+- `mkdir src/components src/redux src/hooks`
+- `touch src/components/{Header.js,ProductList.js,ProductItem.js,ProductDetail.js,Cart.js,CartItem.js,NotFound.js} src/redux/{actions.js,reducers.js,store.js} src/hooks/useFetchProducts.js`
+
+6. Add Bootstrap CSS in your `src/index.js` file:
    `import 'bootstrap/dist/css/bootstrap.min.css';`
 
-7.  Install the dependencies:
-    `npm install`
+7. Install the dependencies:
+   `npm install`
 
-8.  Start the development server:
-    `npm start`
-
-    
+8. Start the development server:
+   `npm start`
 
 ```
 ## Folder Structure
@@ -80,4 +76,4 @@ shoppyGlobe/
 ├── package.json
 └── README.md
 
-````
+```
