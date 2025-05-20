@@ -39,7 +39,7 @@ const ProductItem = ({ product }) => {
       />
       <div className="card-body">
         <h5 className="card-title overlay-content">{product.title}</h5>
-        <p className="card-text small">{product.description}</p>
+        <p className="card-text small">{product.description.length >= 40 ? product.description.substring(0, 50) + '...' : product.description}</p>
         <p className="card-text">
           {discountedPrice === product.price.toFixed(2) ? (
             <span>

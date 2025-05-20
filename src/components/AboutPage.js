@@ -1,7 +1,7 @@
 // src/AboutPage.js
 
 import React from "react";
-import { Card } from "react-bootstrap";
+import { Card, Row } from "react-bootstrap";
 
 const AboutPage = () => {
   // Sample employee data 
@@ -27,6 +27,13 @@ const AboutPage = () => {
       image:
         "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGVyc29ufGVufDB8fDB8fHww",
     },
+    {
+      id: 4,
+      name: "Employee 4",
+      role: "Customer Support",
+      image:
+        "https://plus.unsplash.com/premium_photo-1689539137236-b68e436248de?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D",
+    },
   ];
 
   return (
@@ -36,12 +43,17 @@ const AboutPage = () => {
           <img
             src="https://plus.unsplash.com/premium_photo-1677529496297-fd0174d65941?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8dGVhbXxlbnwwfHwwfHx8MA%3D%3D"
             alt="ShoppyGloe"
-            className="img-fluid mb-4 rounded shadow w-100"
+            className="img-fluid mb-4 rounded shadow"
           />
         </div>
-        <div className="w-50 ">
-          <h1 className="text-center">About ShoppyGloe</h1>
-          <p className="text-center">
+        <div className="w-75 ">
+          <h1 className="md-text-center">About ShoppyGloe</h1>
+          <p className="md-text-center">
+            At ShoppyGloe, we believe in providing the best shopping experience
+            for our customers. Our mission is to offer a wide range of products
+            at competitive prices while ensuring exceptional customer service.
+            <br/>
+            <br/>
             At ShoppyGloe, we believe in providing the best shopping experience
             for our customers. Our mission is to offer a wide range of products
             at competitive prices while ensuring exceptional customer service.
@@ -50,7 +62,7 @@ const AboutPage = () => {
       </div>
 
       <p className="text-center fs-1 fw-bold">Meet Our Team</p>
-      <div className="d-flex flex-wrap justify-content-center align-items-center gap-5 mb-5">
+      <Row lg={5} md={3} className="gap-5 mb-5 d-flex justify-content-center">
         {employees.map((employee) => (
           <Card key={employee.id} className="shadow">
             <img
@@ -63,7 +75,7 @@ const AboutPage = () => {
             </div>
           </Card>
         ))}
-      </div>
+      </Row>
     </div>
   );
 };
