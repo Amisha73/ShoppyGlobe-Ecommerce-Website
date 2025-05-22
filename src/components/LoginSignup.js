@@ -56,7 +56,7 @@ function LoginSignup() {
                 Remember me
               </label>
             </div>
-            <Link to="#!">Forgot password?</Link>
+            <Link to="#!"><h6>Forgot password?</h6></Link>
           </div>
 
           <button className="btn btn-primary mb-4 w-100">Sign in</button>

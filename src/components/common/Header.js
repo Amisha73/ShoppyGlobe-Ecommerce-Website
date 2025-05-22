@@ -1,15 +1,19 @@
-// src/components/Header.js
-
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
 
 const Header = () => {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+    const navigate = useNavigate();
+    const toggleSidebar = () => { setIsSidebarOpen(!isSidebarOpen); };
 
-  const toggleSidebar = () => {
-    setIsSidebarOpen(!isSidebarOpen);
-  };
+    const handleSearch = (event) => {
+        event.preventDefault(); // Prevent the default form submission
+        const query = event.target.elements.search.value.trim(); // Access the input value
+        if (query) {
+            navigate(`/search?query=${query}`);
+        }
+    };
 
   return (
     <header className="bg-dark text-white p-3">
@@ -41,48 +45,34 @@ const Header = () => {
             <nav className="d-flex flex-column gap-3">
               <ul className="nav flex-column">
                 <li className="nav-item">
-                  <Link to="/" className="nav-link text-white" onClick={toggleSidebar}
-                  >
+                  <Link to="/" className="nav-link text-white" onClick={toggleSidebar}>
                     Home
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link to="/about" className="nav-link text-white" onClick={toggleSidebar}
-                  >
+                  <Link to="/about" className="nav-link text-white" onClick={toggleSidebar}>
                     About
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link to="/product" className="nav-link text-white" onClick={toggleSidebar}
-                  >
+                  <Link to="/product" className="nav-link text-white" onClick={toggleSidebar}>
                     Products
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link to="/cart" className="nav-link text-white" onClick={toggleSidebar}
-                  >
+                  <Link to="/cart" className="nav-link text-white" onClick={toggleSidebar}>
                     Cart
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link to="/checkout" className="nav-link text-white" onClick={toggleSidebar}
-                  >
+                  <Link to="/checkout" className="nav-link text-white" onClick={toggleSidebar}>
                     Checkout
                   </Link>
                 </li>
                 <Link to="/loginSignup" className="nav-link text-white" onClick={toggleSidebar}>
-                Login
-              </Link>
+                  Login
+                </Link>
               </ul>
-
-              {/* <form className="">
-                <input
-                  type="search"
-                  className="form-control rounded"
-                  placeholder="Search"
-                />
-              </form> */}
-              
             </nav>
           </div>
         )}
@@ -113,18 +103,21 @@ const Header = () => {
               </li>
             </ul>
             {/* input for search */}
-            <form className="input-group w-auto">
-              <input
-                type="search"
-                className="form-control"
-                placeholder="Search"
-              />
-              <span className="input-group-text " id="search-addon">
-                <FaSearch />
-              </span>
+            {/* <Searchfield handleText={handleSearchText} /> */}
+            <form className="input-group w-auto " onSubmit={handleSearch}>
+                <input
+                  type="search"
+                  name="search"
+                  className="form-control"
+                  placeholder="Search products name..."
+                />
+                <span className="input-group-text " id="search-addon" >
+                  <FaSearch />
+                </span>
             </form>
           </nav>
         </div>
+
         <div className="d-none d-xxl-block d-xl-block d-lg-block">
           <div className="d-flex gap-5 me-3 ">
             <div className="position-relative">

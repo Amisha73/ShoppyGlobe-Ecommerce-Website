@@ -7,7 +7,7 @@ import { Button } from "react-bootstrap";
 const ProductList = () => {
   const { products, loading, error } = useFetchProducts();
   const [selectedCategory, setSelectedCategory] = useState("All");
-
+  
   // Categories array
   const categories = ["All", "beauty", "fragrances", "furniture", "groceries"];
 
@@ -19,6 +19,7 @@ const ProductList = () => {
     return product.category === selectedCategory; // Filter by category
   });
 
+  // spinner for loading
   if (loading)
     return (
       <div
