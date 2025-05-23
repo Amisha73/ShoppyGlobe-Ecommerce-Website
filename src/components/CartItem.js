@@ -1,25 +1,50 @@
 // src/components/CartItem.js
-
 import React from 'react';
-import { Button } from 'react-bootstrap';
+import { Card, Button, Row, Col, Form } from 'react-bootstrap';
 
-const CartItem = () => {
+const CartItem = ({ item, onRemove, onQuantityChange }) => {
+  const handleChange = (e) => {
+    const quantity = parseInt(e.target.value, 10);
+    if (quantity > 0) {
+      onQuantityChange(quantity);
+    }
+  };
+
   return (
-    <tr>
-      <td>title</td>
-      <td>$price</td>
-      <td>
-        <input
-          type="number"
-          min="1"
-          style={{ width: '60px' }}
-        />
-      </td>
-      <td>$price*quantity</td>
-      <td>
-        <Button variant="danger">Remove</Button>
-      </td>
-    </tr>
+    <Card className="mb-5 shadow pe-5">
+      <Row className="g-0 align-items-center">
+        <Col md={3}>
+          <img
+            src={item.images && item.images.length > 0 ? item.images[0] : ''}
+            alt={item.title}
+            className="img-fluid"
+            style={{ maxHeight: '150px', objectFit: 'cover' }}
+          />
+        </Col>
+        <Col md={6} sm={6} xs={9}>
+          <Card.Body>
+            <Card.Title>{item.title}</Card.Title>
+            {item.brand && <Card.Subtitle className="mb-2 text-muted">{item.brand}</Card.Subtitle>}
+            <Card.Text>
+              Price: ${item.price.toFixed(2)} <br />
+              Total: ${(item.price * item.quantity).toFixed(2)}
+            </Card.Text>
+          </Card.Body>
+        </Col>
+        <Col md={3} sm={6} xs={3} className="d-flex align-items-center gap-3 p-2 flex-wrap">
+          <Form.Control
+            type="number"
+            min="1"
+            value={item.quantity}
+            onChange={handleChange}
+            style={{ width: '80px' }}
+          />
+          <Button variant="danger" onClick={onRemove}>
+            Remove
+          </Button>
+        </Col>
+      </Row>
+    </Card>
   );
 };
 

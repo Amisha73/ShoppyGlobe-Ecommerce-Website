@@ -1,11 +1,15 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
+import { useSelector } from "react-redux";
 
 const Header = () => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     const navigate = useNavigate();
     const toggleSidebar = () => { setIsSidebarOpen(!isSidebarOpen); };
+
+    const cartItems = useSelector((state) => state.items);
+    const cartCount = cartItems.length;
 
     const handleSearch = (event) => {
         event.preventDefault(); // Prevent the default form submission
@@ -132,7 +136,7 @@ const Header = () => {
                   <path d="M6.5 0a.5.5 0 0 1 .5.5V1h10V.5a.5.5 0 0 1 1 0V1h1a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1h-1.5l-1.5 7H7.5l-1.5-7H1a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5V.5a.5.5 0 0 1 .5-.5zM1 3v1h1.5l1.5 7h8l1.5-7H20V3H1zm5 15a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm10 0a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" />
                 </svg>
                 <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                  0
+                  {cartCount}
                 </span>
               </Link>
             </div>

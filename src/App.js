@@ -10,6 +10,7 @@ import Footer from './components/common/Footer'
 import AboutPage from "./components/AboutPage";
 import LoginSignup from "./components/LoginSignup";
 import SearchResult from "./components/SearchResult";
+import CheckOutPage from "./components/CheckOutPage";
 
 const App = () => {
   return (
@@ -24,7 +25,7 @@ const App = () => {
         <Route path="/about" element={<AboutPage />} />
         <Route path="*" element={<NotFound />} />
         <Route path="/search" element={<SearchResult />} />
-        {/* <Route path="/checkout"  element={<CheckOutPage/>}/> */}
+        <Route path="/checkout"  element={<CheckOutPage/>}/>
         <Route path="/loginSignup" element={<LoginSignup/>} />
       </Routes>
       <Footer/>

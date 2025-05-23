@@ -8,6 +8,7 @@ import { Spinner } from "react-bootstrap";
 const ProductDetails = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
+  const [addedToCart, setAddedToCart] = useState(false);
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -43,19 +44,15 @@ const ProductDetails = () => {
   if (error) return <p>Error fetching product details.</p>;
 
   const handleAddToCart = () => {
-    // dispatch(addToCart({ ...product, quantity: 1 }));
-    // console.log("Failed to add to cart");
     try {
       dispatch(addToCart({ ...product, quantity: 1 }));
+      setAddedToCart(true);
     } catch (error) {
       console.error("Failed to add to cart:", error);
     }
   };
 
-  const discountedPrice = (
-    product.price -
-    product.price * (product.discountPercentage / 100)
-  ).toFixed(2);
+  const discountedPrice = (product.price - product.price * (product.discountPercentage / 100)).toFixed(2);
 
   return (
     <div className="mx-auto lg-p-5 w-75 mb-5 ">
@@ -76,8 +73,9 @@ const ProductDetails = () => {
                 variant="dark"
                 onClick={handleAddToCart}
                 className="w-100"
+                disabled={addedToCart}
               >
-                Add to Cart
+                {addedToCart ? "Added to Cart" : "Add to Cart"}
               </Button>
             </div>
             <div className="d-flex flex-column  ">
